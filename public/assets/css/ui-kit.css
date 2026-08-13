@@ -85,7 +85,15 @@ a:focus-visible {
   padding-left: var(--space-7);
 }
 
-@media (max-width: 1199px) {
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .page-container {
+    width: auto;
+    margin-right: 40px;
+    margin-left: 40px;
+  }
+}
+
+@media (max-width: 1023px) {
   .page-container {
     width: auto;
     margin-right: 40px;

@@ -36,7 +36,14 @@
   line-height: var(--line-height-md);
 }
 
-@media (max-width: 1199px) {
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .footer-content {
+    width: auto;
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 1023px) {
   .footer-content {
     width: auto;
     padding: 0 40px;

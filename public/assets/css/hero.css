@@ -63,7 +63,25 @@
   object-fit: cover;
 }
 
-@media (max-width: 1199px) {
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .hero-copy,
+  .hero-product {
+    width: calc(50% - 12px);
+  }
+
+  .hero-product {
+    height: auto;
+    aspect-ratio: 1 / 1.1;
+  }
+
+  .hero-product img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+  }
+}
+
+@media (max-width: 1023px) {
   .hero-section {
     min-height: 640px;
     padding: 96px 0;

@@ -62,7 +62,24 @@
   justify-content: center;
 }
 
-@media (max-width: 1199px) {
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .result-card {
+    width: calc((100% - 64px) / 3);
+  }
+
+  .result-image {
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  .result-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+  }
+}
+
+@media (max-width: 1023px) {
   .results-section {
     height: auto;
   }
@@ -100,10 +117,6 @@
   .result-card {
     width: 100%;
     gap: var(--space-2);
-  }
-
-  .result-image {
-    max-height: 320px;
   }
 
   .result-image img {

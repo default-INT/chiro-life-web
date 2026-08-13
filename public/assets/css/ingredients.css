@@ -66,7 +66,7 @@
   line-height: var(--line-height-md);
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 1023px) {
   .ingredients-section {
     height: auto;
   }
@@ -83,6 +83,28 @@
 
   .ingredient-card {
     padding: var(--space-4);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .ingredients-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .ingredients-image-card {
+    min-height: 420px;
+    grid-column: auto;
+  }
+
+  .ingredients-list {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .ingredient-card {
+    width: calc((100% - 48px) / 3);
+    flex: 1 1 0;
   }
 }
 
@@ -112,6 +134,7 @@
   }
 
   .ingredients-list {
+    flex-direction: column;
     gap: var(--space-5);
   }
 
