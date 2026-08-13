@@ -1,0 +1,108 @@
+.motion-reveal {
+  opacity: 0;
+  transform: translate3d(0, 36px, 0);
+  transition:
+    opacity var(--motion-duration-reveal) var(--motion-easing-standard),
+    transform var(--motion-duration-reveal) var(--motion-easing-standard);
+  transition-delay: var(--motion-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.motion-reveal-scale {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0) scale(0.96);
+  transition:
+    opacity var(--motion-duration-reveal) var(--motion-easing-standard),
+    transform 1100ms var(--motion-easing-standard);
+  transition-delay: var(--motion-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.motion-reveal.is-visible,
+.motion-reveal-scale.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.motion-complete {
+  will-change: auto;
+}
+
+.header.motion-header-enter {
+  animation: header-enter 700ms var(--motion-easing-standard) both;
+}
+
+.app-button {
+  transition:
+    opacity var(--motion-duration-fast) ease-in-out,
+    transform var(--motion-duration-fast) var(--motion-easing-standard),
+    box-shadow var(--motion-duration-fast) ease-in-out;
+}
+
+.app-button:hover,
+.app-button:focus-visible {
+  transform: translateY(-2px);
+}
+
+.app-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+section[id],
+footer[id] {
+  scroll-margin-top: calc(var(--header-height) + var(--space-3));
+}
+
+@keyframes header-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -16px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (max-width: 767px) {
+  .motion-reveal {
+    transform: translate3d(0, 24px, 0);
+  }
+
+  .motion-reveal-scale {
+    transform: translate3d(0, 16px, 0) scale(0.97);
+  }
+
+  section[id],
+  footer[id] {
+    scroll-margin-top: 80px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .motion-reveal,
+  .motion-reveal-scale {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .header.motion-header-enter {
+    animation: none;
+  }
+
+  .app-button {
+    transition: opacity var(--motion-duration-fast) ease-in-out;
+  }
+
+  .app-button:hover,
+  .app-button:focus-visible,
+  .app-button:active {
+    transform: none;
+  }
+}
