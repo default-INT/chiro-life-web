@@ -1,0 +1,17 @@
+{
+  "name": "ChiroLife",
+  "short_name": "ChiroLife",
+  "description": "Grass-fed whipped beef tallow balm with raw honey and natural beeswax.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#FAF9F6",
+  "theme_color": "#FAF9F6",
+  "icons": [
+    {
+      "src": "./favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

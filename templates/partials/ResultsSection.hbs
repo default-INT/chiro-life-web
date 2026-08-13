@@ -8,7 +8,7 @@
       {{#each results}}
         <article class="result-card">
           <div class="result-image">
-            <img src="{{image}}" alt="{{alt}}">
+            <img src="{{image}}" width="375" height="375" loading="lazy" decoding="async" alt="{{alt}}">
           </div>
           <h3>{{title}}</h3>
           <p>{{description}}</p>
@@ -16,7 +16,7 @@
       {{/each}}
     </div>
     <div class="results-action">
-      <a class="app-button app-button-wide" href="https://a.co/d/0d7pGPIj" target="_blank" rel="noopener noreferrer">Shop Value Size Now</a>
+      <a class="app-button app-button-wide" href="{{product.amazonShortUrl}}" target="_blank" rel="noopener noreferrer">Shop Value Size Now</a>
     </div>
   </div>
 </section>

@@ -54,3 +54,18 @@ fs.readdirSync(pagesDir).forEach(file => {
 });
 
 fs.copySync(publicDir, distDir);
+
+const siteUrl = `${data.site.url.replace(/\/$/, '')}/`;
+const robotsContent = `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}sitemap.xml\n`;
+const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>${siteUrl}</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+`;
+
+fs.writeFileSync(path.join(distDir, 'robots.txt'), robotsContent, 'utf-8');
+fs.writeFileSync(path.join(distDir, 'sitemap.xml'), sitemapContent, 'utf-8');

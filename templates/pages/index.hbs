@@ -1,13 +1,164 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{site.language}}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#FAF9F6">
   <meta name="description" content="{{meta.description}}">
+  <meta name="keywords" content="{{meta.keywords}}">
+  <meta name="author" content="{{site.name}}">
+  <meta name="application-name" content="{{site.name}}">
+  <meta name="apple-mobile-web-app-title" content="{{site.name}}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="geo.region" content="US">
+  <meta name="geo.placename" content="United States">
+  <meta name="format-detection" content="telephone=no">
+
   <title>{{meta.title}}</title>
+
+  <link rel="canonical" href="{{site.url}}">
+  <link rel="alternate" hreflang="en-US" href="{{site.url}}">
+  <link rel="alternate" hreflang="x-default" href="{{site.url}}">
   <link rel="icon" href="./favicon.ico" sizes="any">
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="./site.webmanifest">
+
+  <meta property="og:type" content="product">
+  <meta property="og:site_name" content="{{site.name}}">
+  <meta property="og:locale" content="{{site.locale}}">
+  <meta property="og:url" content="{{site.url}}">
+  <meta property="og:title" content="{{meta.title}}">
+  <meta property="og:description" content="{{meta.description}}">
+  <meta property="og:image" content="{{site.socialImage}}">
+  <meta property="og:image:url" content="{{site.socialImage}}">
+  <meta property="og:image:secure_url" content="{{site.socialImage}}">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{site.socialImageAlt}}">
+  <meta property="product:brand" content="{{site.name}}">
+  <meta property="product:availability" content="{{product.availability}}">
+  <meta property="product:condition" content="new">
+  <meta property="product:price:amount" content="{{product.price}}">
+  <meta property="product:price:currency" content="{{product.currency}}">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="{{site.url}}">
+  <meta name="twitter:title" content="{{meta.title}}">
+  <meta name="twitter:description" content="{{meta.description}}">
+  <meta name="twitter:image" content="{{site.socialImage}}">
+  <meta name="twitter:image:alt" content="{{site.socialImageAlt}}">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "{{site.url}}#organization",
+          "name": "{{site.name}}",
+          "url": "{{site.url}}",
+          "email": "{{contact.email}}",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "{{site.url}}favicon.svg"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "{{site.url}}#website",
+          "url": "{{site.url}}",
+          "name": "{{site.name}}",
+          "description": "{{meta.description}}",
+          "inLanguage": "{{site.language}}",
+          "publisher": {
+            "@id": "{{site.url}}#organization"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "{{site.url}}#webpage",
+          "url": "{{site.url}}",
+          "name": "{{meta.title}}",
+          "description": "{{meta.description}}",
+          "isPartOf": {
+            "@id": "{{site.url}}#website"
+          },
+          "about": {
+            "@id": "{{site.url}}#product"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "{{site.socialImage}}",
+            "width": 1200,
+            "height": 630
+          },
+          "inLanguage": "{{site.language}}"
+        },
+        {
+          "@type": "Product",
+          "@id": "{{site.url}}#product",
+          "name": "{{product.name}}",
+          "alternateName": "{{product.shortName}}",
+          "description": "{{meta.description}}",
+          "url": "{{site.url}}",
+          "mainEntityOfPage": {
+            "@id": "{{site.url}}#webpage"
+          },
+          "image": [
+            "{{site.socialImage}}",
+            "{{site.url}}assets/images/hero-product.webp"
+          ],
+          "brand": {
+            "@type": "Brand",
+            "name": "{{site.name}}"
+          },
+          "category": "Beauty & Personal Care > Skin Care > Face and Body Moisturizers",
+          "productID": "ASIN:{{product.asin}}",
+          "size": "{{product.size}}",
+          "material": "Grass-fed beef tallow, raw honey, natural beeswax",
+          "audience": {
+            "@type": "PeopleAudience",
+            "geographicArea": {
+              "@type": "Country",
+              "name": "United States"
+            }
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "Scent",
+              "value": "Unscented"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "Use",
+              "value": "Face and body"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "Key ingredients",
+              "value": "Grass-fed beef tallow, raw honey and natural beeswax"
+            }
+          ],
+          "offers": {
+            "@type": "Offer",
+            "url": "{{product.amazonUrl}}",
+            "price": "{{product.price}}",
+            "priceCurrency": "{{product.currency}}",
+            "availability": "{{product.availabilitySchema}}",
+            "itemCondition": "https://schema.org/NewCondition",
+            "seller": {
+              "@id": "{{site.url}}#organization"
+            }
+          }
+        }
+      ]
+    }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">

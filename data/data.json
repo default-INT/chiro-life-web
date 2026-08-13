@@ -1,7 +1,28 @@
 {
   "meta": {
-    "title": "ChiroLife — Honest Skincare by Nature",
-    "description": "Grass-fed whipped beef tallow balm made with pure wild honey and beeswax."
+    "title": "Grass-Fed Beef Tallow Balm for Skin | ChiroLife",
+    "description": "Shop ChiroLife Grass-Fed Whipped Beef Tallow Balm on Amazon. An unscented face and body moisturizer with raw honey and natural beeswax, 4.4 oz.",
+    "keywords": "grass fed beef tallow balm, whipped tallow balm, tallow moisturizer, beef tallow for skin, tallow face moisturizer, honey tallow balm, natural beeswax balm, unscented face moisturizer, face and body moisturizer, ChiroLife"
+  },
+  "site": {
+    "name": "ChiroLife",
+    "url": "https://default-int.github.io/chiro-life-web/",
+    "language": "en-US",
+    "locale": "en_US",
+    "socialImage": "https://default-int.github.io/chiro-life-web/assets/images/social-preview.jpg",
+    "socialImageAlt": "ChiroLife Grass-Fed Whipped Beef Tallow Balm with raw honey and natural beeswax"
+  },
+  "product": {
+    "name": "ChiroLife Grass-Fed Beef Tallow Balm for Face and Body",
+    "shortName": "ChiroLife Whipped Tallow Balm",
+    "asin": "B0GTVRQHN6",
+    "size": "4.4 oz",
+    "price": "19.99",
+    "currency": "USD",
+    "availability": "in stock",
+    "availabilitySchema": "https://schema.org/InStock",
+    "amazonUrl": "https://www.amazon.com/dp/B0GTVRQHN6",
+    "amazonShortUrl": "https://a.co/d/0d7pGPIj"
   },
   "contact": {
     "email": "chirolifehelp@gmail.com"
