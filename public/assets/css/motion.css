@@ -28,6 +28,12 @@
   will-change: auto;
 }
 
+.footer-contact.motion-reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
 .header.motion-header-enter {
   animation: header-enter 700ms var(--motion-easing-standard) both;
 }

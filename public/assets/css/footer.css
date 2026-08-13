@@ -31,9 +31,25 @@
 }
 
 .footer-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
   color: var(--color-text-secondary);
   font-size: var(--font-size-md);
   line-height: var(--line-height-md);
+  transition: color var(--motion-duration-fast) ease-in-out;
+}
+
+.footer-contact img,
+.footer-contact svg {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+}
+
+.footer-contact:hover,
+.footer-contact:focus-visible {
+  color: var(--color-text-primary);
 }
 
 @media (min-width: 1024px) and (max-width: 1199px) {

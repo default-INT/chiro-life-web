@@ -37,7 +37,7 @@ const motionGroups = [
   { selector: '.results-section .section-heading', type: 'reveal' },
   { selector: '.result-card', type: 'reveal', delay: 90 },
   { selector: '.results-action', type: 'reveal' },
-  { selector: '.footer-content > *', type: 'reveal', delay: 90 },
+  { selector: '.footer-content > div', type: 'reveal' },
 ];
 
 const motionElements = motionGroups.flatMap((group) => {
@@ -66,6 +66,10 @@ if (prefersReducedMotion.matches || !('IntersectionObserver' in window)) {
 } else {
   header.classList.add('motion-header-enter');
 
+  const motionRootMargin = window.matchMedia('(max-width: 767px)').matches
+    ? '0px'
+    : '0px 0px -8% 0px';
+
   const motionObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) {
@@ -76,7 +80,7 @@ if (prefersReducedMotion.matches || !('IntersectionObserver' in window)) {
       observer.unobserve(entry.target);
     });
   }, {
-    rootMargin: '0px 0px -8% 0px',
+    rootMargin: motionRootMargin,
     threshold: 0.12,
   });
 

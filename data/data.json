@@ -3,6 +3,9 @@
     "title": "ChiroLife — Honest Skincare by Nature",
     "description": "Grass-fed whipped beef tallow balm made with pure wild honey and beeswax."
   },
+  "contact": {
+    "email": "chirolifehelp@gmail.com"
+  },
   "navigation": [
     { "title": "The Balm", "to": "#balm" },
     { "title": "Ingredients", "to": "#ingredients" },
