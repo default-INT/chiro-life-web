@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "title": "ChiroLife — Honest Skincare by Nature",
+    "description": "Grass-fed whipped beef tallow balm made with pure wild honey and beeswax."
+  },
+  "navigation": [
+    { "title": "The Balm", "to": "#balm" },
+    { "title": "Ingredients", "to": "#ingredients" },
+    { "title": "Our Process", "to": "#process" },
+    { "title": "Transformation", "to": "#transformation" }
+  ],
+  "ingredients": [
+    {
+      "title": "Grass-Fed Tallow",
+      "description": "Rich in vitamins A, D, E, and K. Bio-identical to human skin oils for unparalleled absorption."
+    },
+    {
+      "title": "Wild Honey",
+      "description": "A natural humectant that draws moisture into the skin while providing gentle antibacterial properties."
+    },
+    {
+      "title": "Beeswax",
+      "description": "Creates a breathable protective barrier to lock in hydration and protect against environmental stressors."
+    }
+  ],
+  "benefits": [
+    {
+      "title": "Fast Absorbing",
+      "description": "Whipped to perfection for a light, airy texture that penetrates deeply.",
+      "icon": "./assets/icons/absorption.svg"
+    },
+    {
+      "title": "Deep Hydration",
+      "description": "Restores moisture balance at the cellular level, soothing dry patches.",
+      "icon": "./assets/icons/hydration.svg"
+    },
+    {
+      "title": "Natural Skin Barrier",
+      "description": "Reinforces your skin's natural defenses against environmental damage.",
+      "icon": "./assets/icons/barrier.svg"
+    }
+  ],
+  "results": [
+    {
+      "title": "The Jar",
+      "description": "4.4 oz of concentrated nourishment.",
+      "image": "./assets/images/result-jar.webp",
+      "alt": "Close up view of the 4.4oz ChiroLife Whipped Beef Tallow Balm jar"
+    },
+    {
+      "title": "The Process",
+      "description": "Simple, raw, unrefined.",
+      "image": "./assets/images/result-process.webp",
+      "alt": "The three ingredients of ChiroLife Tallow Balm: tallow, honey, and beeswax"
+    },
+    {
+      "title": "The Texture",
+      "description": "Whipped for a luxurious application.",
+      "image": "./assets/images/result-texture.webp",
+      "alt": "Skin after two months of consistent ChiroLife balm use"
+    }
+  ]
+}

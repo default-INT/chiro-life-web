@@ -1,0 +1,145 @@
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  min-height: 720px;
+  padding: var(--space-section) 0;
+  background: var(--color-background-secondary);
+}
+
+.hero-atmosphere {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 50%;
+  background: linear-gradient(to left, var(--color-atmosphere-20), var(--color-atmosphere-transparent));
+}
+
+.hero-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.hero-copy {
+  display: flex;
+  width: 508px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+  padding-top: 5.5px;
+}
+
+.hero-title {
+  padding-top: 2.5px;
+}
+
+.hero-description {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-xl);
+}
+
+.hero-action {
+  width: 100%;
+  padding-top: var(--space-3);
+}
+
+.hero-product {
+  position: relative;
+  display: flex;
+  width: 508px;
+  height: 560px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: var(--radius-large);
+}
+
+.hero-product img {
+  width: 508px;
+  height: 508px;
+  object-fit: cover;
+}
+
+@media (max-width: 1199px) {
+  .hero-section {
+    min-height: 640px;
+    padding: 96px 0;
+  }
+
+  .hero-copy,
+  .hero-product {
+    width: calc(50% - 12px);
+  }
+
+  .hero-product {
+    height: auto;
+    aspect-ratio: 1 / 1.1;
+  }
+
+  .hero-product img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-section {
+    min-height: 0;
+    padding: 40px 0 var(--space-8);
+  }
+
+  .hero-atmosphere {
+    left: 0;
+    background: linear-gradient(to bottom, var(--color-atmosphere-20), var(--color-atmosphere-transparent) 60%);
+  }
+
+  .hero-content {
+    flex-direction: column;
+    gap: var(--space-7);
+  }
+
+  .hero-copy,
+  .hero-product {
+    width: 100%;
+  }
+
+  .hero-copy {
+    align-items: center;
+    gap: var(--space-3);
+    padding-top: 0;
+    text-align: center;
+  }
+
+  .hero-title {
+    padding-top: 0;
+  }
+
+  .hero-description {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-lg);
+  }
+
+  .hero-description br {
+    display: none;
+  }
+
+  .hero-action {
+    width: 280px;
+    padding-top: var(--space-2);
+  }
+
+  .hero-product {
+    max-width: 320px;
+    height: 320px;
+    aspect-ratio: auto;
+  }
+
+  .hero-product img {
+    width: 320px;
+    height: 320px;
+  }
+}

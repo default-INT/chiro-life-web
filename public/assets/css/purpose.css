@@ -1,0 +1,146 @@
+.purpose-section {
+  height: 1040px;
+  background: var(--color-background-secondary);
+}
+
+.purpose-content {
+  display: flex;
+  height: 800px;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+}
+
+.purpose-copy,
+.purpose-image {
+  width: 488px;
+}
+
+.purpose-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+  padding-top: 5.5px;
+}
+
+.purpose-title {
+  width: 100%;
+  padding-top: 2.5px;
+}
+
+.purpose-description {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-md);
+}
+
+.purpose-description .purpose-lead {
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-xl);
+}
+
+.purpose-promise {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding-top: var(--space-3);
+}
+
+.purpose-promise span {
+  width: 48px;
+  height: 1px;
+  background: var(--color-action-accent);
+}
+
+.purpose-promise strong {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  line-height: var(--line-height-xs);
+}
+
+.purpose-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-image);
+}
+
+.purpose-image::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--color-black-20), var(--color-transparent));
+  content: '';
+}
+
+.purpose-image img {
+  width: 488px;
+  height: 610px;
+  object-fit: cover;
+}
+
+@media (max-width: 1199px) {
+  .purpose-section {
+    height: auto;
+  }
+
+  .purpose-content {
+    height: auto;
+    gap: var(--space-5);
+  }
+
+  .purpose-copy,
+  .purpose-image {
+    width: calc((100vw - 128px) / 2);
+  }
+
+  .purpose-image img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .purpose-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-7);
+  }
+
+  .purpose-copy,
+  .purpose-image {
+    width: 100%;
+  }
+
+  .purpose-copy {
+    gap: var(--space-4);
+    padding-top: 0;
+  }
+
+  .purpose-title {
+    padding-top: 0;
+  }
+
+  .purpose-description {
+    gap: var(--space-3);
+  }
+
+  .purpose-description .purpose-lead {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-lg);
+  }
+
+  .purpose-image {
+    border-radius: var(--radius-card);
+  }
+
+  .purpose-image img {
+    height: auto;
+    aspect-ratio: 1 / 1.12;
+    object-fit: cover;
+  }
+}

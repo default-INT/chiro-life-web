@@ -1,0 +1,232 @@
+.benefits-section {
+  position: relative;
+  height: 744px;
+  overflow: hidden;
+  background: var(--color-background-primary);
+}
+
+.benefits-decoration {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 33.33%;
+  border-bottom-left-radius: 100px;
+  background: var(--color-atmosphere-30);
+}
+
+.benefits-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+}
+
+.benefits-copy,
+.benefits-visual {
+  width: 488px;
+}
+
+.benefits-copy {
+  display: flex;
+  height: 504px;
+  flex-direction: column;
+  gap: var(--space-7);
+}
+
+.benefits-copy > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.benefits-description {
+  width: 488px;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-xl);
+}
+
+.benefits-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+}
+
+.benefit-icon {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--space-3);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-icon);
+}
+
+.benefit-icon img,
+.benefit-icon svg {
+  width: 16px;
+  height: 20px;
+}
+
+.benefit-item h3 {
+  margin-bottom: var(--space-1);
+  font-size: var(--font-size-lg);
+  font-weight: 400;
+  line-height: var(--line-height-lg);
+}
+
+.benefit-item p {
+  width: 424px;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-md);
+}
+
+.benefits-visual {
+  position: relative;
+  align-self: flex-start;
+}
+
+.benefits-image {
+  width: 488px;
+  height: 488px;
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-image);
+  object-fit: cover;
+}
+
+.benefits-visual blockquote {
+  position: absolute;
+  bottom: -32px;
+  left: -32px;
+  max-width: 320px;
+  padding: 25px 30px 25px 25px;
+  border: 1px solid var(--color-white-40);
+  border-radius: var(--radius-card);
+  background: var(--color-white-80);
+  box-shadow: var(--shadow-button);
+  backdrop-filter: blur(10px);
+  font-family: var(--font-family-serif);
+  font-size: 24px;
+  font-style: italic;
+  line-height: 36px;
+}
+
+@media (max-width: 1199px) {
+  .benefits-section {
+    height: auto;
+  }
+
+  .benefits-content {
+    gap: var(--space-5);
+  }
+
+  .benefits-copy,
+  .benefits-visual,
+  .benefits-description,
+  .benefits-image {
+    width: calc((100vw - 128px) / 2);
+  }
+
+  .benefits-image {
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  .benefit-item p {
+    width: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .benefits-section {
+    padding: var(--space-8) 0;
+  }
+
+  .benefits-decoration {
+    top: 40%;
+    left: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .benefits-content {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: var(--space-5);
+  }
+
+  .benefits-copy,
+  .benefits-visual,
+  .benefits-description,
+  .benefits-image {
+    width: 100%;
+  }
+
+  .benefits-copy {
+    height: auto;
+    gap: var(--space-5);
+  }
+
+  .benefits-copy > div:first-child {
+    align-items: center;
+    gap: var(--space-2);
+    text-align: center;
+  }
+
+  .benefits-description {
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-md);
+  }
+
+  .benefits-image {
+    height: auto;
+    aspect-ratio: 1.22 / 1;
+    border-radius: var(--radius-card);
+  }
+
+  .benefits-visual blockquote {
+    bottom: 16px;
+    left: 16px;
+    max-width: 250px;
+    padding: var(--space-3);
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-xl);
+  }
+
+  .benefits-list {
+    gap: var(--space-3);
+  }
+
+  .benefit-icon {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+    margin-right: 12px;
+  }
+
+  .benefit-icon img,
+  .benefit-icon svg {
+    width: 14px;
+    height: 18px;
+  }
+
+  .benefit-item h3 {
+    font-size: var(--font-size-md);
+    font-weight: 700;
+    line-height: var(--line-height-md);
+  }
+
+  .benefit-item p {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-sm);
+  }
+}

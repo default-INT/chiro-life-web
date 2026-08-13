@@ -1,0 +1,21 @@
+<section class="ingredients-section section" id="ingredients">
+  <div class="page-container">
+    <div class="section-heading">
+      <h2 class="section-title">Pure Ingredients, Proven Results</h2>
+      <p class="section-description">We believe in radical transparency. Only three natural elements,<br>carefully sourced for maximum efficacy.</p>
+    </div>
+    <div class="ingredients-grid">
+      <div class="ingredients-image-card">
+        <img src="./assets/images/ingredients.webp" alt="A drop of ChiroLife balm showing its pure, fragrance-free formula">
+      </div>
+      <div class="ingredients-list">
+        {{#each ingredients}}
+          <article class="ingredient-card">
+            <h3>{{title}}</h3>
+            <p>{{description}}</p>
+          </article>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</section>

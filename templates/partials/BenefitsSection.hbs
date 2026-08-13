@@ -1,0 +1,28 @@
+<section class="benefits-section section" id="benefits">
+  <div class="benefits-decoration" aria-hidden="true"></div>
+  <div class="benefits-content page-container">
+    <div class="benefits-copy">
+      <div>
+        <h2 class="section-title">Effortless Integration</h2>
+        <p class="benefits-description">A small amount melts instantly into the skin, providing immediate relief without a greasy residue.</p>
+      </div>
+      <div class="benefits-list">
+        {{#each benefits}}
+          <article class="benefit-item">
+            <div class="benefit-icon">
+              <img class="injectable-svg" src="{{icon}}" alt="">
+            </div>
+            <div>
+              <h3>{{title}}</h3>
+              <p>{{description}}</p>
+            </div>
+          </article>
+        {{/each}}
+      </div>
+    </div>
+    <div class="benefits-visual">
+      <img class="benefits-image" src="./assets/images/application.webp" alt="Woman applying ChiroLife balm to her face">
+      <blockquote>“It feels like giving my<br>skin exactly what it's been<br>asking for.”</blockquote>
+    </div>
+  </div>
+</section>
