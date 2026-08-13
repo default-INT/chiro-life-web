@@ -1,6 +1,20 @@
 document.getElementById('footerYear').innerHTML = new Date().getFullYear();
 SVGInject(document.querySelectorAll('.injectable-svg'));
 
+document.querySelectorAll('[data-analytics-event]').forEach((element) => {
+  element.addEventListener('click', () => {
+    if (typeof window.gtag !== 'function') {
+      return;
+    }
+
+    window.gtag('event', element.dataset.analyticsEvent, {
+      link_url: element.href,
+      link_text: element.textContent.trim(),
+      transport_type: 'beacon',
+    });
+  });
+});
+
 const header = document.querySelector('.header');
 const menuToggle = document.querySelector('.header-menu-toggle');
 const navigationLinks = document.querySelectorAll('.header-navigation-link');

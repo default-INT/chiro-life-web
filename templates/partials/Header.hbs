@@ -16,13 +16,13 @@
         <img class="injectable-svg" src="./assets/icons/mail.svg" alt="">
         <span class="header-email-label">Email us</span>
       </a>
-      <a class="app-button header-menu-buy" href="{{product.amazonShortUrl}}" target="_blank" rel="noopener noreferrer">Buy Now</a>
+      <a class="app-button header-menu-buy" data-analytics-event="amazon_buy_click" href="{{product.amazonShortUrl}}" target="_blank" rel="noopener noreferrer">Buy Now</a>
     </nav>
     <div class="header-actions">
       <a class="header-email-link header-email-action" href="mailto:{{contact.email}}" aria-label="Email ChiroLife">
         <img class="injectable-svg" src="./assets/icons/mail.svg" alt="">
       </a>
-      <a class="app-button app-button-small" href="{{product.amazonShortUrl}}" target="_blank" rel="noopener noreferrer">Shop Now</a>
+      <a class="app-button app-button-small" data-analytics-event="amazon_buy_click" href="{{product.amazonShortUrl}}" target="_blank" rel="noopener noreferrer">Shop Now</a>
     </div>
   </div>
 </header>

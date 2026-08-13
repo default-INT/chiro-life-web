@@ -27,6 +27,9 @@
   "contact": {
     "email": "chirolifehelp@gmail.com"
   },
+  "analytics": {
+    "measurementId": "G-4NW9J50Y5B"
+  },
   "navigation": [
     { "title": "The Balm", "to": "#balm" },
     { "title": "Ingredients", "to": "#ingredients" },
