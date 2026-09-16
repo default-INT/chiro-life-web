@@ -152,6 +152,11 @@ footer[id] {
     transition: opacity var(--motion-duration-fast) ease-in-out;
   }
 
+  .editorial-toc a,
+  .editorial-toc a::before {
+    transition: none;
+  }
+
   .app-button:hover,
   .app-button:focus-visible,
   .app-button:active {

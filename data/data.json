@@ -9,7 +9,7 @@
     "url": "https://chirolife.store/",
     "language": "en-US",
     "locale": "en_US",
-    "socialImage": "https://chirolife.store/assets/images/social-preview.jpg",
+    "socialImage": "https://chirolife.store/assets/images/chirolife-tallow-balm-social-preview.jpg",
     "socialImageAlt": "ChiroLife Grass-Fed Whipped Beef Tallow Balm with raw honey and natural beeswax"
   },
   "product": {
@@ -74,19 +74,19 @@
     {
       "title": "The Jar",
       "description": "4.4 oz of concentrated nourishment.",
-      "image": "/assets/images/hero-product.webp",
+      "image": "/assets/images/chirolife-whipped-tallow-balm-4-4oz.webp",
       "alt": "Close up view of the 4.4oz ChiroLife Whipped Beef Tallow Balm jar"
     },
     {
       "title": "The Ingredients",
       "description": "Tallow, wild honey and beeswax.",
-      "image": "/assets/images/result-process.webp",
+      "image": "/assets/images/chirolife-tallow-honey-beeswax-ingredients.webp",
       "alt": "The three ingredients of ChiroLife Tallow Balm: tallow, honey, and beeswax"
     },
     {
       "title": "The Ritual",
       "description": "A small amount for everyday moisture.",
-      "image": "/assets/images/application.webp",
+      "image": "/assets/images/chirolife-tallow-balm-face-application.webp",
       "alt": "Woman applying ChiroLife balm to her face"
     }
   ]

@@ -22,7 +22,11 @@ const data = fs.readJsonSync(path.join(__dirname, 'data', 'data.json'));
 const siteUrl = `${data.site.url.replace(/\/$/, '')}/`;
 const productUrl = new URL(data.product.path, siteUrl).href;
 const pages = [
-  { template: 'index', path: '/', title: data.meta.title, description: data.meta.description, ogType: 'website' },
+  {
+    template: 'index', path: '/', title: data.meta.title, description: data.meta.description, ogType: 'website',
+    ogTitle: 'ChiroLife Grass-Fed Beef Tallow Balm',
+    ogDescription: 'Three simple ingredients. Whipped, unscented moisture for face, hands and body.',
+  },
   {
     template: 'product', path: data.product.path, isProduct: true, ogType: 'product',
     title: 'Whipped Grass-Fed Beef Tallow Balm, 4.4 oz | ChiroLife',
@@ -53,6 +57,7 @@ function structuredData(page) {
       '@type': 'Organization', '@id': `${siteUrl}#organization`,
       name: data.site.name, url: siteUrl, email: data.contact.email,
       logo: { '@type': 'ImageObject', url: `${siteUrl}favicon.svg` },
+      sameAs: [data.seller.sourceUrl],
     },
     {
       '@type': 'WebSite', '@id': `${siteUrl}#website`, name: data.site.name, url: siteUrl,
@@ -69,7 +74,7 @@ function structuredData(page) {
       '@type': 'Product', '@id': `${productUrl}#product`, url: productUrl,
       name: data.product.name, description: page.description,
       mainEntityOfPage: { '@id': `${page.url}#webpage` },
-      image: [`${siteUrl}assets/images/hero-product.webp`],
+      image: [`${siteUrl}assets/images/chirolife-whipped-tallow-balm-4-4oz.webp`],
       brand: { '@type': 'Brand', name: data.site.name }, size: data.product.size,
       material: 'Grass-fed beef tallow, wild honey and beeswax',
     });
@@ -113,7 +118,12 @@ fs.readdirSync(partialsDir).forEach(file => {
 });
 
 pages.forEach(config => {
-  const page = { ...config, url: new URL(config.path, siteUrl).href };
+  const page = {
+    ...config,
+    url: new URL(config.path, siteUrl).href,
+    ogTitle: config.ogTitle || config.title,
+    ogDescription: config.ogDescription || config.description,
+  };
   page.isIngredients = page.path === '/ingredients/';
   page.isHowToUse = page.path === '/how-to-use-tallow-balm/';
   page.isGuides = page.path === '/guides/' || (page.isArticle && !page.isHowToUse);

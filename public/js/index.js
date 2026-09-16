@@ -34,6 +34,57 @@ if (header && menuToggle) {
   });
 }
 
+const editorialTocLinks = Array.from(document.querySelectorAll('.editorial-toc a[href^="#"]'));
+
+if (editorialTocLinks.length) {
+  const tocItems = editorialTocLinks.map((link) => ({
+    link,
+    section: document.getElementById(decodeURIComponent(link.hash.slice(1))),
+  })).filter((item) => item.section);
+  let activeTocLink;
+  let tocFrame;
+
+  const setActiveTocLink = (link) => {
+    if (!link || link === activeTocLink) return;
+
+    tocItems.forEach((item) => {
+      const isActive = item.link === link;
+      item.link.classList.toggle('is-active', isActive);
+      if (isActive) item.link.setAttribute('aria-current', 'location');
+      else item.link.removeAttribute('aria-current');
+    });
+    activeTocLink = link;
+  };
+
+  const updateEditorialToc = () => {
+    tocFrame = null;
+    const marker = window.scrollY + Math.min(window.innerHeight * 0.28, 240) + (header?.offsetHeight || 0);
+    let current = tocItems[0];
+
+    tocItems.forEach((item) => {
+      if (item.section.getBoundingClientRect().top + window.scrollY <= marker) current = item;
+    });
+
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+      current = tocItems[tocItems.length - 1];
+    }
+
+    setActiveTocLink(current?.link);
+  };
+
+  const requestTocUpdate = () => {
+    if (!tocFrame) tocFrame = window.requestAnimationFrame(updateEditorialToc);
+  };
+
+  tocItems.forEach(({ link }) => {
+    link.addEventListener('click', () => setActiveTocLink(link));
+  });
+  window.addEventListener('scroll', requestTocUpdate, { passive: true });
+  window.addEventListener('resize', requestTocUpdate);
+  window.addEventListener('hashchange', requestTocUpdate);
+  updateEditorialToc();
+}
+
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 // Keep native details semantics; animate the measured height in both directions.

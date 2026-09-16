@@ -6,6 +6,13 @@ const root = path.join(__dirname, '..', 'dist');
 const data = require('../data/data.json');
 const pages = require('../data/pages');
 const routes = ['/', data.product.path, ...pages.map(page => page.path), '/guides/'];
+const strategyRoutes = [
+  '/beef-tallow-balm-for-face/', '/faq/',
+  '/beef-tallow-for-skin/', '/how-to-use-tallow-balm/',
+  '/tallow-balm-for-dry-skin/', '/tallow-balm-vs-lotion/',
+  '/why-beeswax-in-skin-balm/', '/does-tallow-balm-smell/',
+  '/how-much-tallow-balm-to-use/', '/how-to-store-tallow-balm/',
+];
 const read = route => fs.readFileSync(path.join(root, route, 'index.html'), 'utf8');
 const unescape = text => text.replace(/&amp;/g, '&').replace(/&#x3D;/g, '=').replace(/&#x27;/g, "'").replace(/&quot;/g, '"');
 
@@ -65,6 +72,30 @@ test('404 is not indexed and seller feedback is identified accurately', () => {
   assert(product.includes('These are seller reviews'));
   assert(unescape(product).includes(data.seller.sourceUrl));
   assert(!product.includes('Verified Purchase'));
+});
+
+test('remaining strategy pages, social metadata and trust signals are present', () => {
+  const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
+  for (const route of strategyRoutes) {
+    assert(routes.includes(route), `Missing strategy route ${route}`);
+    assert(sitemap.includes(`<loc>https://chirolife.store${route}</loc>`), route);
+  }
+
+  const home = read('/');
+  assert(home.includes('<meta property="og:title" content="ChiroLife Grass-Fed Beef Tallow Balm">'));
+  assert(home.includes('<meta property="og:description" content="Three simple ingredients. Whipped, unscented moisture for face, hands and body.">'));
+
+  const schema = JSON.parse(home.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1]);
+  const organization = schema['@graph'].find(item => item['@type'] === 'Organization');
+  assert.deepEqual(organization.sameAs, [data.seller.sourceUrl]);
+
+  for (const route of [...routes, '/404.html']) {
+    const html = route === '/404.html' ? fs.readFileSync(path.join(root, '404.html'), 'utf8') : read(route);
+    for (const image of html.matchAll(/<img\b([^>]*)>/g)) {
+      assert(/\bwidth="\d+"/.test(image[1]), `${route} image lacks width: ${image[0]}`);
+      assert(/\bheight="\d+"/.test(image[1]), `${route} image lacks height: ${image[0]}`);
+    }
+  }
 });
 
 test('preview HTTP statuses and trailing-slash redirects', { skip: !process.env.SITE_TEST_ORIGIN }, async () => {
