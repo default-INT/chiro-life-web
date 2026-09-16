@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="{{site.language}}">
+<head>{{> Head }}</head>
+<body>
+  {{> Header }}
+  <main id="main-content">
+    <header class="editorial-hero"><div class="page-container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Guides</span></nav><div class="editorial-intro editorial-intro-text"><div><p class="eyebrow">The ChiroLife Journal</p><h1 class="display-title">Know Your Balm.<br>Find Your Routine.</h1><p class="section-description">Straightforward reading on ingredients, application and what to expect from everyday skincare.</p></div></div></div></header>
+    <section class="section"><div class="page-container"><h2 class="section-title">Start With the Basics</h2><div class="guide-grid">{{#each guides}}<article class="guide-card"><img src="/assets/images/{{image}}" width="512" height="512" loading="lazy" decoding="async" alt="{{imageAlt}}"><p class="eyebrow">{{eyebrow}}</p><h3><a href="{{path}}">{{heading}}</a></h3><p>{{description}}</p><a class="text-link" href="{{path}}">Read {{label}}</a></article>{{/each}}</div></div></section>
+    {{> ProductCallout }}
+  </main>
+  {{> Footer }}
+  {{> BottomLinks }}
+</body>
+</html>

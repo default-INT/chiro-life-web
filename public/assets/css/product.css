@@ -1,0 +1,64 @@
+/* Shared product typography follows the existing ChiroLife design tokens. */
+.hero-title {
+  font-size: clamp(36px, 4.5vw, 56px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+section[id] { scroll-margin-top: calc(var(--header-height) + var(--space-3)); }
+.text-link { color: var(--color-action-accent); text-decoration: underline; text-underline-offset: 4px; }
+.product-hero { padding-top: var(--space-7); }
+.breadcrumb { position: relative; display: flex; flex-wrap: wrap; gap: var(--space-3); margin-bottom: var(--space-7); color: var(--color-text-secondary); font-size: var(--font-size-sm); }
+.breadcrumb a { text-decoration: underline; text-underline-offset: 4px; }
+.product-tags { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.product-tags li { padding: var(--space-2) var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-pill); font-size: var(--font-size-sm); }
+.purchase-note { margin-top: var(--space-3); color: var(--color-text-secondary); font-size: var(--font-size-sm); line-height: var(--line-height-sm); }
+.product-use { background: var(--color-background-secondary); }
+.product-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: center; }
+.product-detail-image img { width: 100%; height: auto; border-radius: var(--radius-large); box-shadow: var(--shadow-image-soft); }
+.product-detail-copy { display: flex; flex-direction: column; gap: var(--space-4); }
+.product-section-title { font-size: var(--font-size-heading-md); line-height: var(--line-height-heading-md); }
+.product-detail-copy p, .application-steps { color: var(--color-text-secondary); }
+.product-detail-copy .eyebrow { color: var(--color-action-accent); }
+.application-steps { list-style: decimal; padding-left: var(--space-4); }
+.application-steps li + li { margin-top: var(--space-3); }
+.application-steps strong { color: var(--color-text-primary); font-weight: 600; }
+.product-care-note { padding-top: var(--space-4); border-top: 1px solid var(--color-border); font-size: var(--font-size-sm); line-height: var(--line-height-sm); }
+.faq-list { max-width: 760px; margin: var(--space-7) auto; }
+.faq-list details { border-bottom: 1px solid var(--color-border); }
+.faq-list summary { position: relative; padding: var(--space-4) var(--space-6) var(--space-4) 0; cursor: pointer; font-weight: 600; font-size: var(--font-size-lg); line-height: var(--line-height-lg); list-style: none; }
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::before, .faq-list summary::after { content: ''; position: absolute; right: var(--space-2); top: 50%; width: 14px; height: 2px; background: currentColor; transition: transform 350ms var(--motion-easing-standard), opacity 250ms ease; }
+.faq-list summary::after { transform: rotate(90deg); }
+.faq-list details[open] summary::after { transform: rotate(0deg); opacity: 0; }
+.faq-list details[data-closing] summary::after { transform: rotate(90deg); opacity: 1; }
+.faq-list summary:focus-visible { outline: 2px solid var(--color-action-accent); outline-offset: 4px; }
+.faq-list p { padding-bottom: var(--space-4); color: var(--color-text-secondary); }
+.product-closing { display: flex; flex-direction: column; align-items: center; gap: var(--space-4); text-align: center; }
+.header-navigation-link[aria-current] { color: var(--color-action-accent); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 8px; }
+.product-faq .motion-reveal { transform: translate3d(0, 16px, 0); transition-duration: 600ms; }
+.product-faq .motion-reveal.is-visible, .product-faq .motion-reveal:focus-within { opacity: 1; transform: none; }
+
+@media (min-width: 1024px) {
+  .product-page .section { padding-top: 80px; padding-bottom: 80px; }
+  .product-page .ingredients-section { height: auto; }
+  .product-page .ingredients-grid { height: auto; min-height: 560px; }
+  .product-page .product-faq { padding-bottom: var(--space-7); }
+  .product-page .seller-feedback { padding-top: var(--space-7); }
+  .product-page .faq-list { margin-top: var(--space-5); margin-bottom: var(--space-5); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-list summary::before, .faq-list summary::after { transition: none; }
+  .product-faq .motion-reveal { opacity: 1; transform: none; transition: none; }
+}
+
+@media (max-width: 767px) {
+  .hero-action { max-width: 100%; }
+  .product-hero { padding-top: var(--space-4); }
+  .breadcrumb { margin-bottom: var(--space-5); }
+  .product-tags { justify-content: center; }
+  .product-detail-grid { grid-template-columns: 1fr; gap: var(--space-6); }
+  .product-section-title { font-size: var(--font-size-heading-sm); line-height: var(--line-height-heading-sm); }
+  .product-detail-image { max-width: 400px; margin: 0 auto; }
+}

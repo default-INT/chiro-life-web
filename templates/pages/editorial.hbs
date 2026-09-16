@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="{{site.language}}">
+<head>{{> Head }}</head>
+<body>
+  {{> Header }}
+  <main id="main-content">
+    <article>
+      <header class="editorial-hero">
+        <div class="page-container">
+          <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span>{{#if page.isArticle}}<a href="/guides/">Guides</a><span aria-hidden="true">/</span>{{/if}}<span aria-current="page">{{page.label}}</span></nav>
+          <div class="editorial-intro {{#unless page.image}}editorial-intro-text{{/unless}}">
+            <div>
+              <p class="eyebrow">{{page.eyebrow}}</p>
+              <h1 class="display-title">{{page.heading}}</h1>
+              <p class="section-description">{{page.intro}}</p>
+              {{#if page.isArticle}}<p class="editorial-byline">By <a href="/about/">{{page.author}}</a> · Updated <time datetime="{{page.updated}}">{{page.updatedLabel}}</time></p>{{/if}}
+            </div>
+            {{#if page.image}}<img class="editorial-image" src="/assets/images/{{page.image}}" width="512" height="512" decoding="async" fetchpriority="high" alt="{{page.imageAlt}}">{{/if}}
+          </div>
+        </div>
+      </header>
+      <div class="page-container editorial-layout">
+        <aside class="editorial-toc" aria-label="On this page"><p class="eyebrow">On This Page</p><nav>{{#each page.sections}}<a href="#{{id}}">{{heading}}</a>{{/each}}{{#if page.sources}}<a href="#sources">Sources</a>{{/if}}</nav></aside>
+        <div class="editorial-body">
+          {{#each page.sections}}
+            <section class="editorial-section" id="{{id}}">
+              <h2>{{heading}}</h2>
+              {{#each paragraphs}}<p>{{this}}</p>{{/each}}
+              {{#if steps}}<ol class="editorial-steps">{{#each steps}}<li>{{this}}</li>{{/each}}</ol>{{/if}}
+              {{#if list}}<ul class="editorial-list">{{#each list}}<li>{{this}}</li>{{/each}}</ul>{{/if}}
+              {{#if facts}}<dl class="business-facts">{{#each facts}}<div><dt>{{label}}</dt><dd>{{value}}</dd></div>{{/each}}</dl>{{/if}}
+              {{#if comparison}}<div class="comparison-wrap"><table><caption>ChiroLife balm and lotion at a glance</caption><thead><tr><th scope="col">Compare</th><th scope="col">ChiroLife Balm</th><th scope="col">Lotion</th></tr></thead><tbody>{{#each comparison}}<tr><th scope="row">{{feature}}</th><td data-label="ChiroLife Balm">{{balm}}</td><td data-label="Lotion">{{lotion}}</td></tr>{{/each}}</tbody></table></div>{{/if}}
+              {{#if links}}<ul class="editorial-links">{{#each links}}<li><a class="text-link" href="{{href}}">{{label}}</a></li>{{/each}}</ul>{{/if}}
+            </section>
+          {{/each}}
+          {{#if page.sources}}<section class="editorial-section editorial-sources" id="sources"><h2>Sources</h2><ul>{{#each page.sources}}<li><a class="text-link" href="{{href}}" target="_blank" rel="noopener noreferrer">{{label}}</a></li>{{/each}}</ul><p>Source information checked on {{page.updatedLabel}}. Product details and Amazon order terms may change; review the current listing and your product label.</p>{{#if page.isArticle}}<p>General skincare sources provide context, not an endorsement of ChiroLife.</p>{{/if}}</section>{{/if}}
+        </div>
+      </div>
+    </article>
+    {{#if page.relatedPages}}<section class="section related-section"><div class="page-container"><div class="section-heading"><p class="eyebrow">Keep Exploring</p><h2 class="section-title">A Little More to Know</h2></div><div class="guide-grid">{{#each page.relatedPages}}<article class="guide-card"><p class="eyebrow">{{eyebrow}}</p><h3><a href="{{path}}">{{heading}}</a></h3><p>{{description}}</p><a class="text-link" href="{{path}}">Read {{label}}</a></article>{{/each}}</div></div></section>{{/if}}
+    {{#unless page.noindex}}{{> ProductCallout }}{{/unless}}
+  </main>
+  {{> Footer }}
+  {{> BottomLinks }}
+</body>
+</html>

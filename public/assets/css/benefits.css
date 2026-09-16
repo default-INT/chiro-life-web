@@ -104,7 +104,7 @@
   object-fit: cover;
 }
 
-.benefits-visual blockquote {
+.benefits-visual .application-caption {
   position: absolute;
   bottom: -32px;
   left: -32px;
@@ -276,7 +276,7 @@
     border-radius: var(--radius-card);
   }
 
-  .benefits-visual blockquote {
+  .benefits-visual .application-caption {
     bottom: 16px;
     left: 16px;
     max-width: 250px;

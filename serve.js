@@ -4,19 +4,24 @@ const livereload = require('livereload');
 const connectLivereload = require('connect-livereload');
 
 const app = express();
-const PORT = 3002;
+const PORT = Number(process.env.PORT || 3002);
 
-const liveReloadServer = livereload.createServer();
-liveReloadServer.watch(path.join(__dirname, 'dist'));
-
-app.use(connectLivereload());
+const liveReloadServer = process.env.LIVE_RELOAD === 'false' ? null : livereload.createServer();
+if (liveReloadServer) {
+  liveReloadServer.watch(path.join(__dirname, 'dist'));
+  app.use(connectLivereload());
+}
 app.use(express.static(path.join(__dirname, 'dist')));
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
-liveReloadServer.server.once('connection', () => {
+app.use((req, res) => {
+  res.status(404).sendFile(path.join(__dirname, 'dist', '404.html'));
+});
+
+liveReloadServer?.server.once('connection', () => {
   setTimeout(() => {
     liveReloadServer.refresh('/');
   }, 100);

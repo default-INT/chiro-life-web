@@ -1,5 +1,5 @@
 {
-  "watch": ["templates", "public", "data"],
+  "watch": ["templates", "public", "data", "build.js"],
   "ext": "hbs css js json svg",
   "exec": "node build.js"
 }

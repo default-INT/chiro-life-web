@@ -19,8 +19,45 @@
 }
 
 .motion-reveal.is-visible,
-.motion-reveal-scale.is-visible {
+.motion-reveal-scale.is-visible,
+.motion-reveal:focus-within,
+.motion-reveal-scale:focus-within {
   opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* Editorial pages keep the movement quieter, similar to Apple product pages. */
+.editorial-hero .motion-reveal,
+.editorial-layout .motion-reveal,
+.related-section .motion-reveal,
+.product-callout .motion-reveal,
+.seller-feedback .motion-reveal,
+.product-use .motion-reveal {
+  transform: translate3d(0, 24px, 0);
+  transition-duration: 800ms;
+}
+
+.editorial-hero .motion-reveal-scale,
+.guide-grid .motion-reveal-scale,
+.product-use .motion-reveal-scale {
+  transform: translate3d(0, 18px, 0) scale(0.975);
+  transition-duration: 950ms;
+}
+
+.editorial-hero .motion-reveal.is-visible,
+.editorial-layout .motion-reveal.is-visible,
+.related-section .motion-reveal.is-visible,
+.product-callout .motion-reveal.is-visible,
+.seller-feedback .motion-reveal.is-visible,
+.product-use .motion-reveal.is-visible,
+.editorial-hero .motion-reveal-scale.is-visible,
+.guide-grid .motion-reveal-scale.is-visible,
+.product-use .motion-reveal-scale.is-visible,
+.editorial-layout .motion-reveal:focus-within,
+.related-section .motion-reveal:focus-within,
+.product-callout .motion-reveal:focus-within,
+.seller-feedback .motion-reveal:focus-within,
+.guide-grid .motion-reveal-scale:focus-within {
   transform: translate3d(0, 0, 0) scale(1);
 }
 
@@ -78,6 +115,15 @@ footer[id] {
 
   .motion-reveal-scale {
     transform: translate3d(0, 16px, 0) scale(0.97);
+  }
+
+  .editorial-hero .motion-reveal,
+  .editorial-layout .motion-reveal,
+  .related-section .motion-reveal,
+  .product-callout .motion-reveal,
+  .seller-feedback .motion-reveal,
+  .product-use .motion-reveal {
+    transform: translate3d(0, 16px, 0);
   }
 
   section[id],

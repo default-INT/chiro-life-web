@@ -35,9 +35,66 @@ if (header && menuToggle) {
 }
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+// Keep native details semantics; animate the measured height in both directions.
+document.querySelectorAll('.faq-list details').forEach((details) => {
+  const summary = details.querySelector('summary');
+  const answer = details.querySelector('p');
+  let desiredOpen = details.open;
+  let animation;
+  let answerAnimation;
+
+  const finish = () => {
+    details.open = desiredOpen;
+    details.style.overflow = '';
+    details.removeAttribute('data-closing');
+    animation?.cancel();
+    answerAnimation?.cancel();
+    animation = answerAnimation = null;
+    summary.setAttribute('aria-expanded', String(desiredOpen));
+  };
+
+  summary.addEventListener('click', (event) => {
+    event.preventDefault();
+    const startHeight = details.getBoundingClientRect().height;
+    const startOpacity = details.open ? getComputedStyle(answer).opacity : '0';
+    desiredOpen = animation ? !desiredOpen : !details.open;
+    animation?.cancel();
+    answerAnimation?.cancel();
+    summary.setAttribute('aria-expanded', String(desiredOpen));
+    if (prefersReducedMotion.matches || typeof details.animate !== 'function') {
+      finish();
+      return;
+    }
+    details.open = true;
+    details.toggleAttribute('data-closing', !desiredOpen);
+    details.style.overflow = 'hidden';
+    const endHeight = desiredOpen ? details.getBoundingClientRect().height : summary.getBoundingClientRect().height + parseFloat(getComputedStyle(details).borderBottomWidth);
+    const timing = { duration: 380, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' };
+    animation = details.animate({ height: [`${startHeight}px`, `${endHeight}px`] }, timing);
+    answerAnimation = answer.animate({ opacity: [startOpacity, desiredOpen ? '1' : '0'] }, timing);
+    animation.onfinish = finish;
+  });
+
+  prefersReducedMotion.addEventListener('change', () => { if (prefersReducedMotion.matches) finish(); });
+});
+
 const motionGroups = [
-  { selector: '.hero-copy > *', type: 'reveal', delay: 90 },
-  { selector: '.hero-product', type: 'scale', delay: 120 },
+  // Interior pages use the same restrained reveal language as the homepage:
+  // short vertical travel, generous easing and small content staggers.
+  { selector: '.editorial-hero .breadcrumb', type: 'reveal' },
+  { selector: '.editorial-intro > div > *', type: 'reveal', delay: 85 },
+  { selector: '.editorial-image', type: 'scale' },
+  { selector: '.editorial-toc', type: 'reveal' },
+  { selector: '.editorial-section', type: 'reveal', delay: 55 },
+  { selector: '.guide-grid .guide-card', type: 'scale', delay: 70 },
+  { selector: '.related-section .section-heading', type: 'reveal' },
+  { selector: '.product-callout .page-container > *', type: 'reveal', delay: 80 },
+  { selector: '.seller-feedback .section-heading', type: 'reveal' },
+  { selector: '.seller-feedback .feedback-note', type: 'reveal' },
+  { selector: '.product-use .product-detail-image', type: 'scale' },
+  { selector: '.product-use .product-detail-copy > *', type: 'reveal', delay: 70 },
+  { selector: '.product-page .support-links > *', type: 'reveal', delay: 55 },
   { selector: '.ingredients-section .section-heading', type: 'reveal' },
   { selector: '.ingredients-image-card', type: 'scale' },
   { selector: '.ingredient-card', type: 'reveal', delay: 90 },
@@ -51,7 +108,9 @@ const motionGroups = [
   { selector: '.results-section .section-heading', type: 'reveal' },
   { selector: '.result-card', type: 'reveal', delay: 90 },
   { selector: '.results-action', type: 'reveal' },
-  { selector: '.footer-content > div', type: 'reveal' },
+  { selector: '.product-faq .section-heading', type: 'reveal', repeat: true },
+  { selector: '.faq-list details', type: 'reveal', delay: 35, repeat: true },
+  { selector: '.product-faq .product-closing', type: 'reveal', repeat: true },
 ];
 
 const motionElements = motionGroups.flatMap((group) => {
@@ -62,6 +121,7 @@ const motionElements = motionGroups.flatMap((group) => {
 
     element.classList.add(motionClass);
     element.style.setProperty('--motion-delay', `${index * (group.delay || 0)}ms`);
+    if (group.repeat) element.dataset.motionRepeat = 'true';
   });
 
   return elements;
@@ -87,11 +147,14 @@ if (prefersReducedMotion.matches || !('IntersectionObserver' in window)) {
   const motionObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) {
+        if (entry.target.dataset.motionRepeat && !entry.target.matches(':focus-within')) {
+          entry.target.classList.remove('is-visible', 'motion-complete');
+        }
         return;
       }
 
       showMotionElement(entry.target);
-      observer.unobserve(entry.target);
+      if (!entry.target.dataset.motionRepeat) observer.unobserve(entry.target);
     });
   }, {
     rootMargin: motionRootMargin,

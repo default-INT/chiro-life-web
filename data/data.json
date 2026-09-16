@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Grass-Fed Beef Tallow Balm for Skin | ChiroLife",
-    "description": "Shop ChiroLife Grass-Fed Whipped Beef Tallow Balm on Amazon. An unscented face and body moisturizer with raw honey and natural beeswax, 4.4 oz.",
+    "title": "Grass-Fed Beef Tallow Balm for Face & Body | ChiroLife",
+    "description": "Moisturize dry skin with ChiroLife whipped grass-fed beef tallow balm, made with wild honey and beeswax. Unscented for face, hands and body.",
     "keywords": "grass fed beef tallow balm, whipped tallow balm, tallow moisturizer, beef tallow for skin, tallow face moisturizer, honey tallow balm, natural beeswax balm, unscented face moisturizer, face and body moisturizer, ChiroLife"
   },
   "site": {
@@ -17,15 +17,18 @@
     "shortName": "ChiroLife Whipped Tallow Balm",
     "asin": "B0GTVRQHN6",
     "size": "4.4 oz",
-    "price": "19.99",
-    "currency": "USD",
-    "availability": "in stock",
-    "availabilitySchema": "https://schema.org/InStock",
+    "path": "/products/grass-fed-beef-tallow-balm/",
     "amazonUrl": "https://www.amazon.com/dp/B0GTVRQHN6?maas=maas_adg_AB101905FFE377358F657EF5203D0779_afap_abs&ref_=aa_maas&tag=maas",
     "amazonShortUrl": "https://www.amazon.com/dp/B0GTVRQHN6?maas=maas_adg_AB101905FFE377358F657EF5203D0779_afap_abs&ref_=aa_maas&tag=maas"
   },
   "contact": {
     "email": "chirolifehelp@gmail.com"
+  },
+  "seller": {
+    "name": "ChiroLife Store",
+    "businessName": "Luxe Aya LLC",
+    "sourceUrl": "https://www.amazon.com/sp?seller=A11S86SQ51O2VO",
+    "checkedOn": "2026-09-15"
   },
   "analytics": {
     "measurementId": "G-4NW9J50Y5B"
@@ -39,52 +42,52 @@
   "ingredients": [
     {
       "title": "Grass-Fed Tallow",
-      "description": "Rich in vitamins A, D, E, and K. Bio-identical to human skin oils for unparalleled absorption."
+      "description": "The rich base of our balm softens with the warmth of your skin, leaving it feeling soft and conditioned."
     },
     {
       "title": "Wild Honey",
-      "description": "A natural humectant that draws moisture into the skin while providing gentle antibacterial properties."
+      "description": "Honey complements the balm's moisturizing formula for a soft, conditioned feel."
     },
     {
       "title": "Beeswax",
-      "description": "Creates a breathable protective barrier to lock in hydration and protect against environmental stressors."
+      "description": "Helps form a light protective layer that reduces moisture loss and keeps skin feeling comfortable."
     }
   ],
   "benefits": [
     {
-      "title": "Fast Absorbing",
-      "description": "Whipped to perfection for a light, airy texture that penetrates deeply.",
-      "icon": "./assets/icons/absorption.svg"
+      "title": "Easy Application",
+      "description": "A whipped texture that softens on contact and spreads easily.",
+      "icon": "/assets/icons/absorption.svg"
     },
     {
-      "title": "Deep Hydration",
-      "description": "Restores moisture balance at the cellular level, soothing dry patches.",
-      "icon": "./assets/icons/hydration.svg"
+      "title": "Everyday Moisture",
+      "description": "Helps dry skin feel softer and more comfortable.",
+      "icon": "/assets/icons/hydration.svg"
     },
     {
-      "title": "Natural Skin Barrier",
-      "description": "Reinforces your skin's natural defenses against environmental damage.",
-      "icon": "./assets/icons/barrier.svg"
+      "title": "Moisture Retention",
+      "description": "A rich balm that helps reduce moisture loss.",
+      "icon": "/assets/icons/barrier.svg"
     }
   ],
   "results": [
     {
       "title": "The Jar",
       "description": "4.4 oz of concentrated nourishment.",
-      "image": "./assets/images/result-jar.webp",
+      "image": "/assets/images/hero-product.webp",
       "alt": "Close up view of the 4.4oz ChiroLife Whipped Beef Tallow Balm jar"
     },
     {
-      "title": "The Process",
-      "description": "Simple, raw, unrefined.",
-      "image": "./assets/images/result-process.webp",
+      "title": "The Ingredients",
+      "description": "Tallow, wild honey and beeswax.",
+      "image": "/assets/images/result-process.webp",
       "alt": "The three ingredients of ChiroLife Tallow Balm: tallow, honey, and beeswax"
     },
     {
-      "title": "The Texture",
-      "description": "Whipped for a luxurious application.",
-      "image": "./assets/images/result-texture.webp",
-      "alt": "Skin after two months of consistent ChiroLife balm use"
+      "title": "The Ritual",
+      "description": "A small amount for everyday moisture.",
+      "image": "/assets/images/application.webp",
+      "alt": "Woman applying ChiroLife balm to her face"
     }
   ]
 }

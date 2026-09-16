@@ -4,6 +4,8 @@
   "description": "ChiroLife product landing page",
   "main": "index.js",
   "scripts": {
+    "pretest": "npm run build",
+    "test": "node --test tests/*.test.js",
     "build": "node build.js",
     "dev": "nodemon",
     "serve": "node serve.js"

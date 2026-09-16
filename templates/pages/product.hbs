@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="{{site.language}}">
+<head>
+  {{> Head }}
+</head>
+<body class="product-page">
+  {{> Header }}
+  <main id="main-content">
+    <section class="hero-section product-hero" id="balm">
+      <div class="hero-atmosphere" aria-hidden="true"></div>
+      <div class="page-container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>The Balm</span></nav>
+        <div class="hero-content">
+          <div class="hero-copy">
+            <p class="eyebrow">Three Ingredients. Everyday Moisture.</p>
+            <h1 class="display-title hero-title">Whipped Grass-Fed Beef Tallow Balm - 4.4 oz</h1>
+            <p class="hero-description">A rich, unscented balm made with grass-fed beef tallow, wild honey and beeswax. For soft, comfortable skin on your face, hands and body.</p>
+            <ul class="product-tags" aria-label="Product highlights"><li>4.4 oz jar</li><li>No added fragrance</li><li>Whipped texture</li></ul>
+            <div class="hero-action">
+              <a class="app-button" data-analytics-event="amazon_buy_click" href="{{product.amazonUrl}}" target="_blank" rel="noopener noreferrer">Shop the 4.4 oz Jar on Amazon</a>
+              <p class="purchase-note">View the current price, availability, delivery and return details on Amazon.</p>
+            </div>
+          </div>
+          <div class="hero-product"><img src="/assets/images/hero-product.webp" width="512" height="512" fetchpriority="high" decoding="async" alt="ChiroLife Grass-Fed Whipped Beef Tallow Balm jar, 4.4 oz"></div>
+        </div>
+      </div>
+    </section>
+    {{> IngredientsSection }}
+    <div class="page-container product-guide-link"><a class="text-link" href="/ingredients/">Read the full ingredient guide</a></div>
+    <section class="section product-use" id="how-to-use">
+      <div class="page-container product-detail-grid">
+        <div class="product-detail-image"><img src="/assets/images/application.webp" width="512" height="512" loading="lazy" decoding="async" alt="Applying a small amount of ChiroLife balm to the face"></div>
+        <div class="product-detail-copy">
+          <p class="eyebrow">Your Everyday Ritual</p>
+          <h2 class="display-title product-section-title">A Little Goes<br>a Long Way.</h2>
+          <p>Use wherever your skin needs extra moisture: face, neck, hands, cuticles, elbows or knees.</p>
+          <ol class="application-steps">
+            <li><strong>Start small.</strong> Begin with a pea-sized amount, or less for your face.</li>
+            <li><strong>Warm it.</strong> Soften the balm between clean fingertips.</li>
+            <li><strong>Massage gently.</strong> Spread onto skin and add more only if needed.</li>
+          </ol>
+          <p class="product-care-note">For external use only. Avoid the eyes and rinse with water if contact occurs. Patch-test first, stop if irritation occurs and keep out of children’s reach. Review the product label before use.</p>
+          <a class="text-link" href="/how-to-use-tallow-balm/">Read the complete application guide</a>
+        </div>
+      </div>
+    </section>
+    <section class="section product-faq" id="faq">
+      <div class="page-container">
+        <div class="section-heading"><p class="eyebrow">Good to Know</p><h2 class="section-title">Questions About the Balm</h2><p class="section-description">Ingredients, application and everyday care.</p></div>
+        <div class="faq-list">
+          <details><summary>What ingredients are in ChiroLife Tallow Balm?</summary><p>Grass-fed beef tallow, wild honey and beeswax. Always review the product label before use.</p></details>
+          <details><summary>Can I use it on my face?</summary><p>The balm is designed for face and body. Start with a very small amount and observe how your skin responds.</p></details>
+          <details><summary>Is the balm fragrance-free?</summary><p>It contains no added fragrance. Natural ingredients may have a mild natural scent.</p></details>
+          <details><summary>How much should I apply?</summary><p>Begin with a pea-sized amount, or less for the face. Warm it between clean fingertips, massage into skin and add more only if needed.</p></details>
+          <details><summary>Is it suitable for sensitive skin?</summary><p>Every person's skin is different, even with a short ingredient list. Patch-test on a small area before broader use and stop using if irritation occurs.</p></details>
+          <details><summary>How should I store it?</summary><p>Keep the jar tightly closed in a cool, dry place away from direct sunlight and excessive heat.</p></details>
+          <details><summary>Where can I buy it?</summary><p>Shop ChiroLife on Amazon. Check the listing for the current price, availability, shipping and return details before ordering.</p></details>
+        </div>
+        <div class="product-closing"><a class="app-button" data-analytics-event="amazon_buy_click" href="{{product.amazonUrl}}" target="_blank" rel="noopener noreferrer">Shop ChiroLife on Amazon</a><a class="text-link" href="mailto:{{contact.email}}">Have another question? Email us</a></div>
+      </div>
+    </section>
+    {{> SellerFeedback }}
+    <section class="section product-callout"><div class="page-container"><p class="eyebrow">Shop With Confidence</p><h2 class="section-title">Good to Know Before You Order</h2><p>Purchases are completed on Amazon. Find order help and learn more about your balm.</p><div class="support-links"><a class="text-link" href="/shipping/">Shipping</a><a class="text-link" href="/returns/">Returns</a><a class="text-link" href="/contact/">Contact</a><a class="text-link" href="/guides/">Skincare Guides</a></div></div></section>
+  </main>
+  {{> Footer }}
+  {{> BottomLinks }}
+</body>
+</html>
