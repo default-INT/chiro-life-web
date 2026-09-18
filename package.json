@@ -14,7 +14,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@iconfu/svg-inject": "^1.2.3"
+    "@iconfu/svg-inject": "^1.2.3",
+    "web-vitals": "^6.2.2"
   },
   "devDependencies": {
     "connect-livereload": "^0.6.1",

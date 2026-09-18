@@ -1,6 +1,27 @@
 document.getElementById('footerYear').innerHTML = new Date().getFullYear();
 SVGInject(document.querySelectorAll('.injectable-svg'));
 
+const isProductionAnalyticsHost = ['chirolife.store', 'www.chirolife.store'].includes(window.location.hostname);
+
+if (isProductionAnalyticsHost && window.webVitals && typeof window.gtag === 'function') {
+  const sendWebVitalToGoogleAnalytics = ({ name, delta, value, id, rating, navigationType }) => {
+    window.gtag('event', name, {
+      value: delta,
+      metric_id: id,
+      metric_value: value,
+      metric_delta: delta,
+      metric_rating: rating,
+      navigation_type: navigationType,
+      page_location: window.location.href,
+      non_interaction: true,
+    });
+  };
+
+  window.webVitals.onCLS(sendWebVitalToGoogleAnalytics);
+  window.webVitals.onINP(sendWebVitalToGoogleAnalytics);
+  window.webVitals.onLCP(sendWebVitalToGoogleAnalytics);
+}
+
 document.querySelectorAll('[data-analytics-event]').forEach((element) => {
   element.addEventListener('click', () => {
     if (typeof window.gtag !== 'function') {

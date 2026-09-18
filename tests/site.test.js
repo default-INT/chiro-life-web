@@ -98,6 +98,22 @@ test('remaining strategy pages, social metadata and trust signals are present', 
   }
 });
 
+test('Core Web Vitals are collected and sent to GA4 on production', () => {
+  const home = read('/');
+  const analytics = fs.readFileSync(path.join(root, 'js', 'index.js'), 'utf8');
+
+  assert(home.includes('<script src="/libs/web-vitals/dist/web-vitals.iife.js"></script>'));
+  assert(home.includes('<script src="/js/index.js"></script>'));
+  assert(
+    home.indexOf('/libs/web-vitals/dist/web-vitals.iife.js') < home.indexOf('/js/index.js'),
+    'web-vitals must load before the analytics initialization',
+  );
+  assert(analytics.includes("window.webVitals.onCLS(sendWebVitalToGoogleAnalytics)"));
+  assert(analytics.includes("window.webVitals.onINP(sendWebVitalToGoogleAnalytics)"));
+  assert(analytics.includes("window.webVitals.onLCP(sendWebVitalToGoogleAnalytics)"));
+  assert(analytics.includes("window.gtag('event', name"));
+});
+
 test('preview HTTP statuses and trailing-slash redirects', { skip: !process.env.SITE_TEST_ORIGIN }, async () => {
   const origin = process.env.SITE_TEST_ORIGIN;
   for (const route of routes) {
