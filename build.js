@@ -20,7 +20,6 @@ fs.ensureDirSync(distLibsDir);
 const dependencies = Object.keys(packageJson?.dependencies || {});
 const data = fs.readJsonSync(path.join(__dirname, 'data', 'data.json'));
 const siteUrl = `${data.site.url.replace(/\/$/, '')}/`;
-const productUrl = new URL(data.product.path, siteUrl).href;
 const pages = [
   {
     template: 'index', path: '/', title: data.meta.title, description: data.meta.description, ogType: 'website',
@@ -66,19 +65,9 @@ function structuredData(page) {
     {
       '@type': 'WebPage', '@id': `${page.url}#webpage`, url: page.url,
       name: page.title, description: page.description, inLanguage: data.site.language,
-      isPartOf: { '@id': `${siteUrl}#website` }, about: { '@id': `${productUrl}#product` },
+      isPartOf: { '@id': `${siteUrl}#website` },
     },
   ];
-  if (page.isProduct) {
-    graph.push({
-      '@type': 'Product', '@id': `${productUrl}#product`, url: productUrl,
-      name: data.product.name, description: page.description,
-      mainEntityOfPage: { '@id': `${page.url}#webpage` },
-      image: [`${siteUrl}assets/images/chirolife-whipped-tallow-balm-4-4oz.webp`],
-      brand: { '@type': 'Brand', name: data.site.name }, size: data.product.size,
-      material: 'Grass-fed beef tallow, wild honey and beeswax',
-    });
-  }
   if (page.isArticle) {
     graph.push({
       '@type': 'Article', '@id': `${page.url}#article`, headline: page.heading,

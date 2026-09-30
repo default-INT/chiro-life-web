@@ -31,6 +31,7 @@ document.querySelectorAll('[data-analytics-event]').forEach((element) => {
     window.gtag('event', element.dataset.analyticsEvent, {
       link_url: element.href,
       link_text: element.textContent.trim(),
+      link_type: element.dataset.analyticsLinkType || 'shop',
       transport_type: 'beacon',
     });
   });

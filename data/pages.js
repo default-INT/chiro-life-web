@@ -1,5 +1,5 @@
 const productPath = '/products/grass-fed-beef-tallow-balm/';
-const amazon = { label: 'ChiroLife product listing on Amazon', href: 'https://www.amazon.com/dp/B0GTVRQHN6' };
+const amazon = { label: 'ChiroLife product listing on Amazon', href: 'https://www.amazon.com/dp/B0GTVRQHN6', analyticsEvent: 'amazon_product_reference_click', analyticsLinkType: 'source' };
 const seller = { label: 'ChiroLife Store seller profile on Amazon', href: 'https://www.amazon.com/sp?seller=A11S86SQ51O2VO' };
 const clinic = { label: 'Cleveland Clinic: Beef Tallow for Skin: Is It Useful?', href: 'https://health.clevelandclinic.org/beef-tallow-for-skin' };
 const moisturizer = { label: 'American Academy of Dermatology: Choosing a moisturizer', href: 'https://www.aad.org/public/everyday-care/skin-care-basics/dry/pick-moisturizer' };

@@ -114,6 +114,37 @@ test('Core Web Vitals are collected and sent to GA4 on production', () => {
   assert(analytics.includes("window.gtag('event', name"));
 });
 
+test('every link to the Amazon product records a categorized click', () => {
+  let productLinks = 0;
+  let referenceLinks = 0;
+  let reviewLinks = 0;
+
+  for (const route of routes) {
+    const html = read(route);
+    for (const [anchor] of html.matchAll(/<a\b[^>]*>/g)) {
+      const href = anchor.match(/\bhref="([^"]+)"/)?.[1];
+      if (!href) continue;
+      const destination = new URL(unescape(href), `https://chirolife.store${route}`);
+      if (destination.hostname !== 'www.amazon.com' || destination.pathname !== `/dp/${data.product.asin}`) continue;
+
+      productLinks++;
+      const event = anchor.match(/\bdata-analytics-event="([^"]+)"/)?.[1];
+      assert(event, `${route}: untracked product link`);
+      const linkType = anchor.match(/\bdata-analytics-link-type="([^"]+)"/)?.[1] || 'shop';
+      assert(['shop', 'source', 'reviews'].includes(linkType), `${route}: unexpected link type`);
+      assert.equal(event, linkType === 'shop' ? 'amazon_buy_click' : 'amazon_product_reference_click', `${route}: mismatched event`);
+      if (linkType === 'source') referenceLinks++;
+      if (linkType === 'reviews') reviewLinks++;
+    }
+  }
+
+  assert(productLinks > 0);
+  assert(referenceLinks > 0);
+  assert.equal(reviewLinks, 1);
+  const analytics = fs.readFileSync(path.join(root, 'js', 'index.js'), 'utf8');
+  assert(analytics.includes("link_type: element.dataset.analyticsLinkType || 'shop'"));
+});
+
 test('preview HTTP statuses and trailing-slash redirects', { skip: !process.env.SITE_TEST_ORIGIN }, async () => {
   const origin = process.env.SITE_TEST_ORIGIN;
   for (const route of routes) {
