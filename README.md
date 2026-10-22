@@ -23,6 +23,18 @@ GitHub Pages uses the generated `404.html` for missing URLs. HTTPS enforcement a
 
 Product JSON-LD is generated on the product page. Purchases take place on Amazon, so the site does not publish an Offer, price, stock status or ratings. Keep product copy focused on cosmetic moisturizing benefits and confirm factual claims before adding them.
 
+## Shopping region
+
+The header's USA / Canada selector updates purchase buttons only. The default is USA;
+`public/js/shopping-region.js` checks `chirolife.shoppingRegion` in localStorage first,
+then looks up the visitor's country using https://api.country.is/ with a three-second
+timeout. Canada selects Amazon.ca; other countries select Amazon.com. Successful
+lookups and manual selections are saved. Manual selection takes precedence over a
+pending lookup; lookup failures leave USA active and allow a retry on the next page.
+The service receives the visitor's IP; no browser location permission is requested.
+Product source and seller/review links retain their original URLs. Amazon URLs and
+their attribution parameters are configured in `data/data.json`.
+
 ## Technologies
 
 - Node.js 20

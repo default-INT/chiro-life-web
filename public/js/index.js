@@ -32,6 +32,7 @@ document.querySelectorAll('[data-analytics-event]').forEach((element) => {
       link_url: element.href,
       link_text: element.textContent.trim(),
       link_type: element.dataset.analyticsLinkType || 'shop',
+      shopping_region: element.dataset.shoppingRegion,
       transport_type: 'beacon',
     });
   });

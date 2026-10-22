@@ -2,7 +2,7 @@
 <header class="header">
   <div class="header-content">
     <a class="header-logo" href="/" aria-label="ChiroLife home">ChiroLife</a>
-    <button class="header-menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+    <button class="header-menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="primary-navigation">
       <span class="header-menu-toggle-label">Menu</span>
       <span class="header-menu-toggle-icon" aria-hidden="true"></span>
     </button>
@@ -19,6 +19,16 @@
       <a class="app-button header-menu-buy" data-analytics-event="amazon_buy_click" href="{{product.amazonShortUrl}}" target="_blank" rel="noopener noreferrer">Buy Now</a>
     </nav>
     <div class="header-actions">
+      <details class="header-region" id="shopping-region" data-us-url="{{product.amazonUrl}}" data-ca-url="{{product.amazonCanadaUrl}}">
+        <summary class="header-region-toggle" aria-label="Shopping region: USA" title="Shopping region: USA">
+          <span data-region-flag aria-hidden="true">🇺🇸</span>
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="m2 4 3 3 3-3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="header-region-options" role="group" aria-label="Choose shopping region">
+          <button class="header-region-option" type="button" data-region="US" aria-label="USA" title="USA" aria-pressed="true"><span aria-hidden="true">🇺🇸</span></button>
+          <button class="header-region-option" type="button" data-region="CA" aria-label="Canada" title="Canada" aria-pressed="false"><span aria-hidden="true">🇨🇦</span></button>
+        </div>
+      </details>
       <a class="header-email-link header-email-action" href="mailto:{{contact.email}}" aria-label="Email ChiroLife">
         <img class="injectable-svg" src="/assets/icons/mail.svg" width="20" height="20" alt="">
       </a>
